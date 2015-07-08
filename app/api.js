@@ -111,8 +111,6 @@ module.exports = function (model, scxmlString, modelName) {
 
   //TODO: move these out
   api.instanceViz = function (req, res) {
-    var instanceId = util.getInstanceId(req);
-
     getInstance(req, res, function(instanceId, instance){
       res.render('viz.html', {
         type: 'instance'

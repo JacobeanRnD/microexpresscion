@@ -13,6 +13,8 @@ REST protocol.
 
 `microexpresscion path/to/scxml`
 
+Open `http://localhost:3000/` in your web browser to view the web dashboard.
+
 ## API
 
 See `bin/www` for example of the JavaScript API.

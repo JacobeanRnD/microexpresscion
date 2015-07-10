@@ -1,13 +1,13 @@
 {
   "name": "microexpresscion",
   "description": "Express.js middleware implementing the state machine as a service (SMaaS) protocol, designed to run on devices.",
-  "version": "1.1.0",
-  "homepage": "https://github.com/JacobeanRnD/expresscion/tree/microexpresscion",
+  "version": "1.2.0",
+  "homepage": "https://github.com/JacobeanRnD/microexpresscion",
   "main": "./index.js",
   "license": "LGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JacobeanRnD/expresscion/tree/microexpresscion"
+    "url": "https://github.com/JacobeanRnD/microexpresscion"
   },
   "author": {
     "name": "Jacob Beard",
@@ -15,32 +15,18 @@
     "url": "http://github.com/jbeard4"
   },
   "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower --allow-root install",
-    "start": "node index.js"
+    "start": "node ./bin/www"
   },
   "engines": {
     "node": ">= 0.8.x"
   },
   "bin": {
-    "microexpresscion": "index.js"
+    "microexpresscion": "./bin/www"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "bower": "~1.4.1",
-    "cors": "^2.5.3",
-    "debug": "^2.1.3",
-    "ejs": "^2.3.1",
-    "express": "^4.12.3",
-    "expresscion-portal": "1.0.1",
-    "libxmljs": "^0.14.2",
-    "morgan": "^1.5.2",
+    "common-expresscions": "1.0.0",
+    "debug": "^2.2.0",
     "scxml": "2.0.4",
-    "smaas-swagger-spec": "^1.0.1",
-    "underscore": "^1.8.3",
     "uuid": "^2.0.1"
-  },
-  "devDependencies": {
-    "istanbul": "^0.3.13",
-    "jasmine": "^2.2.1"
   }
 }

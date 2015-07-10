@@ -20,8 +20,8 @@ Open `http://localhost:3000/` in your web browser to view the web dashboard.
 See `bin/www` for example of the JavaScript API.
 
 ```javascript
-require('microexpresscion');
-microexpresscion.initExpress(
+var microexpresscion = require('../index');
+var http = require('http');
 
 microexpresscion.initExpress(pathToScxml,function(err, app){
 

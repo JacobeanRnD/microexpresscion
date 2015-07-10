@@ -1,6 +1,6 @@
 {
   "name": "microexpresscion",
-  "description": "Express.js middleware implementing the state machine as a service (SMaaS) protocol, designed to run on devices.",
+  "description": "SCXML orchestration server designed to run on embedded nodejs device",
   "version": "1.2.0",
   "homepage": "https://github.com/JacobeanRnD/microexpresscion",
   "main": "./index.js",

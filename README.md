@@ -51,6 +51,10 @@ microexpresscion.initExpress(pathToScxml,function(err, app){
 });
 ```
 
+## Examples
+
+[UMIO Universal Morse Input Output device](https://github.com/jbeard4/universal-morse-input-output)
+
 ## Links
 
 * [State Machines as a Service: An SCXML Microservices Platform for the Internet of Things](http://scxmlworkshop.de/eics2015/submissions/State%20Machines%20as%20a%20Service.pdf)

@@ -4,7 +4,7 @@ var common = require('common-expresscions'),
     scxml = require('scxml'),
     uuid = require('uuid');
 
-function initApi(model, scxmlString, modelName) {
+function initApi(model, scxmlString, modelName, cb) {
   var models = {};
   var instances = {};
   var instanceSubscriptions = {};
@@ -105,7 +105,7 @@ function initApi(model, scxmlString, modelName) {
     res.status(501).send({'name':'Not implemented'});
   };
 
-  return api;
+  cb(null,api);
 };
 
 module.exports.initExpress = common.initExpress.bind(this, initApi);

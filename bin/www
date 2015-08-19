@@ -7,8 +7,16 @@
 var microexpresscion = require('../index');
 var debug = require('debug')('microexpresscion:server');
 var http = require('http');
+var SwaggerClient = require('swagger-client');
 
-var pathToScxml = process.argv[2];
+var argv = require('optimist')
+    .usage('Count the lines in a file.\nUsage: $0')
+    .demand(1)
+    .alias('s', 'singleton')
+    .describe('s', 'Singleton instance id')
+    .argv;
+
+var pathToScxml = argv._[0];
 
 if(!pathToScxml) throw new Error('Path to SCXML not specified');
 
@@ -95,5 +103,37 @@ microexpresscion.initExpress(pathToScxml,function(err, app){
       ? 'pipe ' + addr
       : 'port ' + addr.port;
     console.log('Listening on ' + bind);
+
+
+    var SINGLETON_INSTANCEID = argv.s;
+    if(SINGLETON_INSTANCEID){
+      console.log('Creating singleton instance');
+      //use the swagger js client library to set up singleton instance
+      var swagger = new SwaggerClient({
+        url: 'http://0.0.0.0:' + addr.port + '/api/v3/smaas.json',
+        success: function(){
+          swagger.apis.scxml.createNamedInstance(
+            { InstanceId: SINGLETON_INSTANCEID },
+            function onInstanceSuccess (data) {
+              console.log('Created singleton instance: ', data.headers.location);
+              console.log('Starting singleton');
+
+              //initialize the instance
+              swagger.apis.scxml.sendEvent(
+                {  
+                  InstanceId: SINGLETON_INSTANCEID,
+                  Event: {name : 'system.start'}
+                }, function (response) {
+                  console.log('Started singleton: ',response.data);
+                }, function (data) {
+                  console.log('Error starting singleton',data);
+                });
+            },
+            function onInstanceError (data) {
+              console.log('Error on instance creation', data.data.toString());
+            });
+        }
+      }); 
+    }
   }
 });

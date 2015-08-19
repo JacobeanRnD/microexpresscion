@@ -1,7 +1,7 @@
 {
   "name": "microexpresscion",
   "description": "SCXML orchestration server designed to run on embedded nodejs device",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "homepage": "https://github.com/JacobeanRnD/microexpresscion",
   "main": "./index.js",
   "license": "LGPL-3.0",
@@ -26,7 +26,9 @@
   "dependencies": {
     "common-expresscions": "1.6.0",
     "debug": "^2.2.0",
+    "optimist": "^0.6.1",
     "scxml": "2.0.4",
+    "swagger-client": "^2.1.2",
     "uuid": "^2.0.1"
   }
 }
